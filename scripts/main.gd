@@ -31,3 +31,7 @@ func _create_obstacles():
 	x_spawn_counter += 2000
 	
 	
+
+
+func _on_button_pressed() -> void:
+	get_tree().reload_current_scene()

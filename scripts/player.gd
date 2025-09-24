@@ -5,8 +5,10 @@ const SPEED = 300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _animated_sprite = $AnimatedSprite2D
 
+
 func _process(delta: float) -> void:
-	if()
+	if(global_position.y > 1400):
+		_player_death()
 
 func _physics_process(delta: float) -> void:
 	#gravity
