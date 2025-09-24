@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cig3i58b124un"]
+
+[ext_resource type="Script" uid="uid://8l1nkr1bhc67" path="res://scripts/main.gd" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cquvvix3fjve4" path="res://assets/Night_Sky.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://c65kkh77df0oc" path="res://scenes/player.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dmvsjm8u7iuwv" path="res://scripts/player.gd" id="3_h2yge"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_1bvp3")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="bg" type="CanvasLayer" parent="Background"]
+layer = -100
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/bg"]
+position = Vector2(-1.5, -9)
+scale = Vector2(1.98432, 1.60366)
+texture = ExtResource("1_ig7tw")
+
+[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
+z_index = 12
+script = ExtResource("3_h2yge")

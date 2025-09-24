@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh0nxvchtfdft"]
+
+[ext_resource type="Script" uid="uid://robua3akp24v" path="res://scripts/runestone.gd" id="1_4t5t3"]
+[ext_resource type="Texture2D" uid="uid://ctgcmtmn1qkgb" path="res://assets/Runestone.png" id="1_oukeg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4t5t3"]
+size = Vector2(900, 1326.36)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_4t5t3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_interpolation_mode = 2
+
+[node name="runestone_top" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-3, 2)
+rotation = -3.14159
+scale = Vector2(0.444329, 0.667694)
+texture = ExtResource("1_oukeg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+rotation = -3.13969
+polygon = PackedVector2Array(308.493, 785.415, -349.506, 786.665, -351.59, 742.669, -342.888, 585.652, -342.998, 527.653, -349.167, 438.664, -349.353, 340.664, -345.54, 242.657, -337.733, 140.642, -330.866, 70.6287, -323.92, 42.6154, -312.967, 17.5946, -298.02, -10.4339, -265.108, -56.4965, -255.125, -65.5155, -222.326, -171.578, -195.473, -248.629, -184.537, -282.65, -166.602, -316.684, -140.659, -346.733, -99.716, -376.811, -80.7673, -403.847, -40.9991, -525.923, -30.0125, -532.944, -18.0011, -526.967, -2.97831, -514.995, 11.0388, -506.022, 46.0501, -500.088, 56.0501, -500.107, 71.0577, -496.136, 103.058, -496.197, 123.073, -488.235, 130.084, -482.248, 145.118, -464.277, 168.19, -426.32, 182.23, -405.347, 190.247, -396.362, 195.257, -391.372, 213.268, -385.406, 224.287, -375.427, 230.301, -368.438, 234.323, -356.446, 241.378, -327.459, 245.432, -299.467, 255.521, -252.486, 265.648, -185.505, 280.785, -113.534, 287.891, -57.547, 300.028, 14.4301, 307.106, 55.4167, 317.15, 78.3977, 319.193, 101.394, 315.273, 143.401, 312.353, 185.407, 308.482, 253.414, 302.7, 368.426, 303.027, 540.425, 307.21, 636.418, 308.415, 744.415)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, -124.182)
+shape = SubResource("RectangleShape2D_4t5t3")

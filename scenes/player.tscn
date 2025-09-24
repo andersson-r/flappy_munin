@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://c65kkh77df0oc"]
+
+[ext_resource type="Texture2D" uid="uid://ci6ibdw3sfy3g" path="res://assets/Untitled_Artwork-1.png" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://2vps6bjux7yo" path="res://assets/Untitled_Artwork-2.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://1emwjte82oia" path="res://assets/Untitled_Artwork-3.png" id="3_qlg0r"]
+
+[sub_resource type="GDScript" id="GDScript_qhqgy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qhqgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dqkch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qlg0r")
+}],
+"loop": false,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+motion_mode = 1
+script = SubResource("GDScript_qhqgy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+animation = &"fly"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.15, 0.15)
+polygon = PackedVector2Array(26, 20, 113, -2, 196, -21, 322, -22, 457, 1, 461, -3, 474, 1, 600, -8, 673, 6, 762, 57, 772, 75, 827, 87, 882, 110, 897, 121, 930, 132, 977, 177, 979, 189, 969, 191, 910, 194, 817, 192, 754, 198, 757, 203, 739, 222, 715, 234, 666, 239, 623, 253, 582, 255, 554, 270, 544, 270, 522, 280, 511, 277, 506, 294, 470, 315, 445, 348, 400, 380, 301, 408, 228, 415, 144, 411, 53, 393, 27, 388, 1, 376, -29, 371, -107, 386, -152, 377, -167, 348, -198, 341, -220, 335, -231, 317, -294, 310, -314, 315, -333, 292, -408, 294, -528, 295, -638, 287, -662, 290, -697, 286, -721, 289, -758, 287, -794, 288, -826, 280, -831, 265, -941, 253, -956, 226, -954, 213, -940, 211, -915, 216, -851, 217, -798, 215, -779, 192, -745, 195, -579, 189, -469, 177, -421, 166, -367, 163, -352, 168, -341, 148, -317, 141, -280, 123, -224, 104, -175, 88, -123, 75, -52, 46)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.41, 0.41)
+limit_top = -1300
+limit_bottom = 1300
