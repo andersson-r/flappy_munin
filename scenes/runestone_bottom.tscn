@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j8ay"]
 size = Vector2(900, 1200)
 
-[node name="Node2D" type="Node2D"]
+[node name="Runestone Bottom" type="Node2D"]
 script = ExtResource("1_1r788")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

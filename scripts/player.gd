@@ -7,13 +7,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _process(delta: float) -> void:
-	if(global_position.y > 1400):
+	if(global_position.y > 1400): #player fall down
 		_player_death()
 
 func _physics_process(delta: float) -> void:
 	#gravity
 	if(not is_on_floor()):
-		velocity.y = velocity.y + 20
+		velocity.y += 20 #adjusted fall speed
 
 	#fly
 	if (Input.is_action_pressed("jump")):
@@ -27,4 +27,4 @@ func _physics_process(delta: float) -> void:
 
 
 func _player_death():
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
