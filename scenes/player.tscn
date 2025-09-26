@@ -23,7 +23,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = SubResource("GDScript_qhqgy")
 
