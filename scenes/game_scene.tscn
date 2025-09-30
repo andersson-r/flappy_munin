@@ -23,52 +23,25 @@ texture = ExtResource("1_bw6k5")
 z_index = 12
 script = ExtResource("3_rurhu")
 
-[node name="GameOverLayer" type="Control" parent="."]
-visible = false
-z_index = 14
-layout_mode = 3
-anchors_preset = 0
-offset_left = -2357.0
-offset_top = -1327.0
-offset_right = 2351.0
-offset_bottom = 1325.0
-
-[node name="ColorRect" type="ColorRect" parent="GameOverLayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.431373)
+[node name="GameOverLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="GameOverLayer"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -764.5
-offset_top = -247.5
-offset_right = 764.5
-offset_bottom = 247.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -38.0
+offset_top = 113.0
+offset_right = 2072.0
+offset_bottom = 903.0
+size_flags_horizontal = 4
+size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("4_kk2rg")
-theme_override_font_sizes/font_size = 560
+theme_override_font_sizes/font_size = 591
 text = "GAME OVER"
 
-[node name="Button" type="Button" parent="GameOverLayer"]
-layout_mode = 2
-offset_left = 2191.0
-offset_top = 1700.0
-offset_right = 2517.0
-offset_bottom = 1818.0
-size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("4_kk2rg")
-theme_override_font_sizes/font_size = 100
-text = "TRY AGAIN
-"
+[node name="Panel" type="Panel" parent="GameOverLayer"]
+offset_left = -2344.0
+offset_top = -1325.0
+offset_right = 2341.0
+offset_bottom = 1307.0
 
-[connection signal="pressed" from="GameOverLayer/Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="GameOverLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
