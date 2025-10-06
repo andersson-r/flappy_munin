@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cig3i58b124un"]
 
 [ext_resource type="Texture2D" uid="uid://cquvvix3fjve4" path="res://assets/Night_Sky.png" id="1_bw6k5"]
-[ext_resource type="Script" uid="uid://lt6jr3o0ybce" path="res://scripts/game_scene.gd" id="1_y3j0m"]
+[ext_resource type="Script" uid="uid://lt6jr3o0ybce" path="res://scenes/game_scene.gd" id="1_y3j0m"]
 [ext_resource type="PackedScene" uid="uid://c65kkh77df0oc" path="res://scenes/player.tscn" id="2_y3j0m"]
 [ext_resource type="Script" uid="uid://dmvsjm8u7iuwv" path="res://scripts/player.gd" id="3_rurhu"]
 [ext_resource type="FontFile" uid="uid://ds2kuowfhp3qt" path="res://fonts/norse/Norse.otf" id="4_kk2rg"]
@@ -15,7 +15,7 @@ script = ExtResource("1_y3j0m")
 layer = -100
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/bg"]
-position = Vector2(-1.5, -9)
+position = Vector2(-1, 15)
 scale = Vector2(1.98432, 1.60366)
 texture = ExtResource("1_bw6k5")
 
@@ -24,17 +24,7 @@ z_index = 12
 script = ExtResource("3_rurhu")
 
 [node name="GameOverLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="GameOverLayer"]
-offset_left = -38.0
-offset_top = 113.0
-offset_right = 2072.0
-offset_bottom = 903.0
-size_flags_horizontal = 4
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("4_kk2rg")
-theme_override_font_sizes/font_size = 591
-text = "GAME OVER"
+visible = false
 
 [node name="Panel" type="Panel" parent="GameOverLayer"]
 offset_left = -2344.0
@@ -42,6 +32,51 @@ offset_top = -1325.0
 offset_right = 2341.0
 offset_bottom = 1307.0
 
-[node name="Button" type="Button" parent="GameOverLayer"]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOverLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="GameOverLabel" type="Label" parent="GameOverLayer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_kk2rg")
+theme_override_font_sizes/font_size = 361
+text = "GAME OVER"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GameOverLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ScoreLabel" type="Label" parent="GameOverLayer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_kk2rg")
+theme_override_font_sizes/font_size = 121
+text = "Score: "
+
+[node name="MarginContainer3" type="MarginContainer" parent="GameOverLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="RetryButton" type="Button" parent="GameOverLayer/VBoxContainer/MarginContainer3"]
+process_mode = 2
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_kk2rg")
+theme_override_font_sizes/font_size = 81
+text = "Retry"
+
+[connection signal="pressed" from="GameOverLayer/VBoxContainer/MarginContainer3/RetryButton" to="." method="_on_retry_button_pressed"]

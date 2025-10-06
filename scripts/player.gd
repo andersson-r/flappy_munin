@@ -20,7 +20,8 @@ func _physics_process(delta: float) -> void:
 	#fly
 	if Input.is_action_pressed("jump"):
 		_animated_sprite.play()
-		velocity.y = JUMP_SPEED
+		if !global_position.y < -1250: #limit from flying above player area
+			velocity.y = JUMP_SPEED
 
 	#the player should constantly move forward
 	velocity.x = 2 * SPEED
@@ -32,5 +33,4 @@ func _physics_process(delta: float) -> void:
 
 
 func _player_death():
-	get_tree().paused = true
-	#get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
+	$"..".show_game_over_screen()

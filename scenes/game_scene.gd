@@ -3,12 +3,14 @@ extends Node
 var _x_spawn_counter: int = 10
 const _bottom_rune_preload = preload("res://scenes/runestone_bottom.tscn")
 const _top_rune_preload = preload("res://scenes/runestone_top.tscn")
+var game_over_layer: CanvasLayer
+ 
 var _bottom_rune: RuneStone
 var _top_rune: RuneStone
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	game_over_layer = $GameOverLayer
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,4 +31,15 @@ func _create_obstacles():
 	add_child(_top_rune)
 	add_child(_bottom_rune)
 	_x_spawn_counter += 2000
+	
+func show_game_over_screen():
+	get_tree().paused = true
+	game_over_layer.show()
+	
+
+
+func _on_retry_button_pressed() -> void:
+	game_over_layer.hide()
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 	
