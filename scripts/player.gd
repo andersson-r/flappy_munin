@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const JUMP_SPEED = -400
+const JUMP_SPEED = -1200
 const SPEED = 300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _animated_sprite = $AnimatedSprite2D
@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	#gravity
 	if not is_on_floor():
-		velocity.y += 20 #adjusted fall speed
+		velocity.y += 100 #adjusted fall speed
 
 	#fly
 	if Input.is_action_pressed("jump"):
